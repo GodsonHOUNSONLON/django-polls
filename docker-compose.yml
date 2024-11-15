@@ -22,8 +22,8 @@ services:
     image: mysql:5.7  # Choisissez la version de MySQL que vous souhaitez utiliser
     container_name: mysql_db
     restart: always
-    environment:
-      MYSQL_DATABASE: your_database_name  # Remplacez parrr le nom de votre base de données
+    environment:  
+      MYSQL_DATABASE: your_database_name  # Rempllacez parrr le nom de votre base de données
       MYSQL_USER: your_username  # Remplacez par votre nom d'utilisateur
       MYSQL_PASSWORD: your_password  # Remplacez par votre mot de passe
       MYSQL_ROOT_PASSWORD: your_root_password  # Remplacez par votre mot de passe root
