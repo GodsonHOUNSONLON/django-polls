@@ -1,0 +1,37 @@
+version: '3.8'
+
+services:
+  web:
+    build: .
+    container_name: django_polls
+    ports:
+      - '8001:8001'
+    volumes:
+      - .:/app
+      - sqlite_data:/app/db.sqlite3  # Volume persistant pour la base de données SQLite
+    environment:
+      - DJANGO_ENV=development
+      - DB_HOST=mysql  # Nom du service MySQL
+      - DB_NAME=your_database_name  # Remplacez par le nom de votre base de données
+      - DB_USER=your_username  # Remplacez par votre nom d'utilisateur
+      - DB_PASSWORD=your_password  # Remplacez par votre mot de passe
+      - DB_PORT=3306  # Port pour accéder à MySQL
+    command: python manage.py runserver 0.0.0.0:8001
+
+  mysql:
+    image: mysql:5.7  # Choisissez la version de MySQL que vous souhaitez utiliser
+    container_name: mysql_db
+    restart: always
+    environment:
+      MYSQL_DATABASE: your_database_name  # Remplacez par le nom de votre base de données
+      MYSQL_USER: your_username  # Remplacez par votre nom d'utilisateur
+      MYSQL_PASSWORD: your_password  # Remplacez par votre mot de passe
+      MYSQL_ROOT_PASSWORD: your_root_password  # Remplacez par votre mot de passe root
+    ports:
+      - '3306:3306'  # Port pour accéder à MySQL
+    volumes:
+      - mysql_data:/var/lib/mysql  # Volume persistant pour les données MySQL
+
+volumes:
+  sqlite_data:
+  mysql_data:

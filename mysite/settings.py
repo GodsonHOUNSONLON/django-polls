@@ -119,3 +119,16 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+# Autres configurations...
+
+#DATABASES = {
+#    'default': {
+#       'ENGINE': 'django.db.backends.mysql',  # Utilisation de MySQL
+#     'NAME': os.getenv('DB_NAME', 'default_db_name'),  # Nom de la base de données
+#        'USER': os.getenv('DB_USER', 'default_user'),  # Utilisateur de la base de données
+#        'PASSWORD': os.getenv('DB_PASSWORD', 'default_password'),  # Mot de passe
+#        'HOST': os.getenv('DB_HOST', 'localhost'),  # Hôte de la base de données
+#        'PORT': os.getenv('DB_PORT', '3306'),  # Port de la base de données
+#    }
+#}
